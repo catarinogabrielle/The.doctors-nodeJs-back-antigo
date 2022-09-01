@@ -11,14 +11,16 @@ class CreateMyClasseController {
             throw new Error("error upload file")
         } else {
 
-            console.log(req.files);
+            const files = req.files as { [fieldname: string]: Express.Multer.File[] };
+            const image = files['image'][0].filename;
+            const teacher = files['teacher'][0].filename;
 
             const myclasse = await createMyClasseService.execute({
                 title,
-                image: '',
+                image,
                 name,
                 info,
-                teacher: '',
+                teacher,
                 work
             });
 

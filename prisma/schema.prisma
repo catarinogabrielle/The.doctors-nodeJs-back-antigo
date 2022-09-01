@@ -44,6 +44,7 @@ model Classe {
   status      Boolean   @default(false)
   draft       Boolean   @default(true)
   time        String
+  banner      String
   description String
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())

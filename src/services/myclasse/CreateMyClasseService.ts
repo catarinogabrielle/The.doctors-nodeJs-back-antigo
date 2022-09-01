@@ -31,6 +31,7 @@ class CreateMyClasseService {
                 title: true,
                 image: true,
                 name: true,
+                teacher: true,
                 work: true,
                 info: true,
             }
