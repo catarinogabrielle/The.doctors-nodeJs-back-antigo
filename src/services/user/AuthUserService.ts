@@ -15,17 +15,17 @@ class AuthUserService {
             where: {
                 email: email
             }
-        })
+        });
 
         if (!user) {
-            throw new Error("User/password incorrect")
+            throw new Error("User/password incorrect");
         }
 
         // preciso verificar se a senha que ele mandou está correta.
-        const passwordMatch = await compare(password, user.password)
+        const passwordMatch = await compare(password, user.password);
 
         if (!passwordMatch) {
-            throw new Error("User/password incorrect")
+            throw new Error("User/password incorrect");
         }
 
         // se deu tudo certo vamos gerar o token pro usuario.
@@ -39,7 +39,7 @@ class AuthUserService {
                 subject: user.id,
                 expiresIn: '30d'
             }
-        )
+        );
 
         return {
             id: user.id,

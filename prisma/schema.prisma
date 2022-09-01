@@ -16,9 +16,40 @@ model User {
   name       String
   email      String
   password   String
-  status       String     @default("student")
+  type       String    @default("student")
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
   @@map("users")
+}
+
+model Myclasse {
+  id         String    @id @default(uuid())
+  title      String
+  image      String
+  teacher    String
+  work       String
+  name       String
+  info       String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+  classes    Classe[]
+
+  @@map("myclasses")
+}
+
+model Classe {
+  id          String    @id @default(uuid())
+  title       String
+  status      Boolean   @default(false)
+  draft       Boolean   @default(true)
+  time        String
+  description String
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now())
+
+  myclasse    Myclasse @relation(fields: [myclasse_id], references: [id])
+  myclasse_id String
+
+  @@map("classes")
 }

@@ -12,7 +12,7 @@ class CreateUserService {
 
         // verificar se ele enviou um email
         if (!email) {
-            throw new Error("Email incorrect")
+            throw new Error("Email incorrect");
         }
 
         // verificar se esse email já está cadastrado na plataforma
@@ -20,13 +20,13 @@ class CreateUserService {
             where: {
                 email: email
             }
-        })
+        });
 
         if (userAlreadyExists) {
-            throw new Error("User already exists")
+            throw new Error("User already exists");
         }
 
-        const passwordHash = await hash(password, 8)
+        const passwordHash = await hash(password, 8);
 
         const user = await prismaClient.user.create({
             data: {
