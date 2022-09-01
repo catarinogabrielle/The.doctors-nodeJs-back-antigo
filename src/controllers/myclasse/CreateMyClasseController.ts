@@ -10,9 +10,8 @@ class CreateMyClasseController {
         if (!req.files) {
             throw new Error("error upload file")
         } else {
-            
-            const files = req.files
-            console.log(files);
+
+            console.log(req.files);
 
             const myclasse = await createMyClasseService.execute({
                 title,
