@@ -3,14 +3,16 @@ import prismaClient from "../../prisma"
 interface MyclasseRequest {
     title: string;
     image: string;
-    teacher: string;
-    work: string,
-    name: string;
-    info: string;
+    teacherphoto: string;
+    teacherwork: string,
+    teachername: string;
+    teacherinfo: string;
+    description: string;
+    time: string;
 }
 
 class CreateMyClasseService {
-    async execute({ title, image, teacher, name, info, work }: MyclasseRequest) {
+    async execute({ title, image, teacherphoto, teachername, teacherinfo, teacherwork, description, time }: MyclasseRequest) {
 
         // verificar se ele colocou um titulo
         if (title === '') {
@@ -21,19 +23,22 @@ class CreateMyClasseService {
             data: {
                 title: title,
                 image: image,
-                name: name,
-                teacher: teacher,
-                work: work,
-                info: info,
+                teachername: teachername,
+                teacherphoto: teacherphoto,
+                teacherwork: teacherwork,
+                teacherinfo: teacherinfo,
+                description: description,
+                time: time,
             },
             select: {
-                id: true,
                 title: true,
                 image: true,
-                name: true,
-                teacher: true,
-                work: true,
-                info: true,
+                teachername: true,
+                teacherphoto: true,
+                teacherwork: true,
+                teacherinfo: true,
+                description: true,
+                time: true,
             }
         })
 

@@ -22,7 +22,7 @@ router.post('/session', new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailUserController().handle)
 
 //-- ROTAS CLASSE --
-router.post('/myclasses', isAuthenticated, upload.fields([{ name: 'teacher', maxCount: 1 }, { name: 'image', maxCount: 1 }]), new CreateMyClasseController().handle)
+router.post('/myclasses', isAuthenticated, upload.fields([{ name: 'teacherphoto', maxCount: 1 }, { name: 'image', maxCount: 1 }]), new CreateMyClasseController().handle)
 router.get('/myclasses', isAuthenticated, new ListMyClasseController().handle)
 
 export { router };

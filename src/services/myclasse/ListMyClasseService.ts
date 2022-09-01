@@ -7,10 +7,12 @@ class ListMyClasseService {
                 id: true,
                 title: true,
                 image: true,
-                name: true,
-                teacher: true,
-                work: true,
-                info: true,
+                teachername: true,
+                teacherphoto: true,
+                teacherwork: true,
+                teacherinfo: true,
+                description: true,
+                time: true,
             }
         });
 

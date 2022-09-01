@@ -3,7 +3,7 @@ import { CreateMyClasseService } from '../../services/myclasse/CreateMyClasseSer
 
 class CreateMyClasseController {
     async handle(req: Request, res: Response) {
-        const { title, name, info, work } = req.body;
+        const { title, teachername, teacherinfo, teacherwork, description, time } = req.body;
 
         const createMyClasseService = new CreateMyClasseService();
 
@@ -13,15 +13,17 @@ class CreateMyClasseController {
 
             const files = req.files as { [fieldname: string]: Express.Multer.File[] };
             const image = files['image'][0].filename;
-            const teacher = files['teacher'][0].filename;
+            const teacherphoto = files['teacherphoto'][0].filename;
 
             const myclasse = await createMyClasseService.execute({
                 title,
                 image,
-                name,
-                info,
-                teacher,
-                work
+                teachername,
+                teacherphoto,
+                teacherwork,
+                teacherinfo,
+                description,
+                time,
             });
 
             return res.json(myclasse);
