@@ -42,9 +42,10 @@ model Myclasse {
 
 model Classe {
   id          String    @id @default(uuid())
+  title       String
   status      Boolean   @default(false)
   draft       Boolean   @default(true)
-  material    String
+  material    String[]
   description String
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())

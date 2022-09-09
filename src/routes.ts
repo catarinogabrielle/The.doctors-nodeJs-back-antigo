@@ -28,7 +28,7 @@ router.get('/me', isAuthenticated, new DetailUserController().handle)
 router.post('/myclasses', isAuthenticated, upload.fields([{ name: 'teacherphoto', maxCount: 1 }, { name: 'image', maxCount: 1 }]), new CreateMyClasseController().handle)
 router.get('/myclasses', isAuthenticated, new ListMyClasseController().handle)
 
-router.post('/classes', isAuthenticated, new CreateClasseController().handle)
+router.post('/classes', isAuthenticated, upload.any(), new CreateClasseController().handle)
 router.get('/classes', isAuthenticated, new ListClasseController().handle)
 
 export { router };

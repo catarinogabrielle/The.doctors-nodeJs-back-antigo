@@ -1,13 +1,14 @@
 import prismaClient from "../../prisma"
 
 interface ClasseRequest {
-    material: string;
+    material: string[];
+    title: string;
     description: string;
     myclasse_id: string;
 }
 
 class CreateClasseService {
-    async execute({ material, description, myclasse_id }: ClasseRequest) {
+    async execute({ material, description, myclasse_id, title }: ClasseRequest) {
 
         // verificar se ele colocou um titulo
         if (description === '') {
@@ -19,11 +20,13 @@ class CreateClasseService {
                 material: material,
                 description: description,
                 myclasse_id: myclasse_id,
+                title: title,
             },
             select: {
                 material: true,
                 description: true,
                 myclasse_id: true,
+                title: true,
             }
         })
 

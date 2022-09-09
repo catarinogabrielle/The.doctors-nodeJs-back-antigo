@@ -5,6 +5,7 @@ class ListClasseService {
         const classe = await prismaClient.classe.findMany({
             select: {
                 id: true,
+                title: true,
                 status: true,
                 draft: true,
                 material: true,
