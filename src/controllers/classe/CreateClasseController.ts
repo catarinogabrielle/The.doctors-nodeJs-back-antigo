@@ -7,12 +7,11 @@ class CreateClasseController {
 
         const createMyClasseService = new CreateClasseService();
 
-        if (!req.files) {
+        if (!req.file) {
             throw new Error("error upload file")
         } else {
 
-            const filenames = req.files! as Array<Express.Multer.File>
-            const material = filenames.map(file => file.filename)
+            const { filename: material } = req.file
 
             const classe = await createMyClasseService.execute({
                 material,

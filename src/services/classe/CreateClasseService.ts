@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma"
 
 interface ClasseRequest {
-    material: string[];
+    material: string;
     title: string;
     description: string;
     myclasse_id: string;

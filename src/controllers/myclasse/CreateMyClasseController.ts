@@ -15,8 +15,6 @@ class CreateMyClasseController {
             const image = files['image'][0].filename;
             const teacherphoto = files['teacherphoto'][0].filename;
 
-            console.log(image)
-
             const myclasse = await createMyClasseService.execute({
                 title,
                 image,
