@@ -9,7 +9,7 @@ import { CreateMyClasseController } from './controllers/myclasse/CreateMyClasseC
 import { ListMyClasseController } from './controllers/myclasse/ListMyClasseController'
 
 import { CreateClasseController } from './controllers/classe/CreateClasseController'
-import { ListClasseController } from './controllers/classe/ListClasseController'
+import { ListByMyClasseController } from './controllers/classe/ListByMyClasseController'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -29,6 +29,6 @@ router.post('/myclasses', isAuthenticated, upload.fields([{ name: 'teacherphoto'
 router.get('/myclasses', isAuthenticated, new ListMyClasseController().handle)
 
 router.post('/classes', isAuthenticated, upload.single('material'), new CreateClasseController().handle)
-router.get('/classes', isAuthenticated, new ListClasseController().handle)
+router.get('/myclasses/classes', isAuthenticated, new ListByMyClasseController().handle)
 
 export { router };
